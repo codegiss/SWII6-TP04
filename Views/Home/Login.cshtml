@@ -1,0 +1,27 @@
+﻿@page
+@model ContaFacil.Views.Home.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<form asp-action="Login" method="post">
+    <div class="form-group">
+        <label for="Username">Usuário</label>
+        <input type="text" class="form-control" id="Username" name="Username" required />
+    </div>
+    <div class="form-group">
+        <label for="Password">Senha</label>
+        <input type="password" class="form-control" id="Password" name="Password" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+</form>
+
+@if (Model.LoginFailed)
+{
+    <div class="alert alert-danger mt-2">
+        Credenciais inválidas, por favor tente novamente.
+    </div>
+}
+

@@ -1,0 +1,50 @@
+﻿@page
+@model ContaFacil.Views.Home.HomeModel
+@{
+    ViewData["Title"] = "Página Principal";
+}
+
+<h2>Clientes</h2>
+
+<!-- Formulário para Criar Cliente -->
+<form method="post">
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+        <input type="text" class="form-control" id="Nome" name="Nome" required />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" required />
+    </div>
+    <div class="form-group">
+        <label for="Telefone">Telefone</label>
+        <input type="text" class="form-control" id="Telefone" name="Telefone" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Criar Cliente</button>
+</form>
+
+<h3>Clientes Existentes</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model.Clientes)
+        {
+            <tr>
+                <td>@cliente.Nome</td>
+                <td>@cliente.Email</td>
+                <td>@cliente.Telefone</td>
+                <td>
+                    <a href="/Clientes/Editar/@cliente.Id">Editar</a> |
+                    <a href="/Clientes/Deletar/@cliente.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

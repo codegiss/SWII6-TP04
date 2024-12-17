@@ -1,0 +1,23 @@
+﻿@page
+@model ContaFacil.Views.Home.TransferenciaModel
+@{
+    ViewData["Title"] = "Transferir Dinheiro";
+}
+
+<h2>Transferir Dinheiro</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ContaOrigemId">ID da Conta Origem</label>
+        <input type="number" class="form-control" id="ContaOrigemId" name="ContaOrigemId" required />
+    </div>
+    <div class="form-group">
+        <label for="ContaDestinoId">ID da Conta Destino</label>
+        <input type="number" class="form-control" id="ContaDestinoId" name="ContaDestinoId" required />
+    </div>
+    <div class="form-group">
+        <label for="Valor">Valor</label>
+        <input type="number" class="form-control" id="Valor" name="Valor" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Transferir</button>
+</form>
